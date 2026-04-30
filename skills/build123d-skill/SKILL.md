@@ -10,7 +10,7 @@ Use this skill only for coding CAD with build123d. Do not turn it into visual dr
 
 ## Default Workflow
 
-1. Capture design intent: purpose, units, datum/origin, symmetries, critical interfaces, tolerances, manufacturing process, and export format.
+1. Capture design intent: purpose, units, datum/origin, global axis convention, reference-view source, symmetries, critical interfaces, tolerances, manufacturing process, and export format.
 2. Work in the lowest useful dimension: 1D construction curves, then 2D sketches, then 3D parts.
 3. Choose the API style deliberately:
    - Builder mode for stepwise parts, sketches on faces, local workplanes, repeated feature locations, and readable modeling history.
@@ -18,7 +18,22 @@ Use this skill only for coding CAD with build123d. Do not turn it into visual dr
    - Direct API for low-level topology construction, interrogation, projection, wrapping, or factory methods.
 4. Model base geometry first, then functional cuts/interfaces, then shells/drafts/offsets, then fillets/chamfers late.
 5. Use robust selectors based on geometry, axis, position, length, radius, area, topology relationships, or named construction references. Avoid raw index-only selection unless the shape list was already made stable.
-6. Validate before export: dimensions, bounding boxes, feature counts, validity, manifoldness where relevant, selector results, assembly interference, and export units/tolerances. build123d geometry is unitless internally; make units explicit in parameters and exporters, usually `Unit.MM`.
+6. For asymmetric features, phone cases, device enclosures, user-supplied drawings, photos, or features described as left/right/front/back, read [references/coordinate-system-protocol.md](references/coordinate-system-protocol.md) before coding placements.
+7. Validate before export: dimensions, bounding boxes, feature counts, validity, manifoldness where relevant, selector results, assembly interference, coordinate handedness/mirroring, and export units/tolerances. build123d geometry is unitless internally; make units explicit in parameters and exporters, usually `Unit.MM`.
+
+## Coordinate Discipline
+
+Default to right-handed model coordinates: `+X=right`, `-X=left`, `-Y=front`, `+Y=back`, `+Z=up`, `-Z=down`. Treat these as front-view model coordinates unless the script explicitly declares otherwise.
+
+When specs come from a rear/back view, the left/right axis is mirrored relative to the front-view model: drawing-left maps to model `+X`, and drawing-right maps to model `-X`. Write this mapping as a code comment before placing the affected feature.
+
+Start every non-trivial CAD script with an axis convention comment, for example:
+
+```python
+# Axis convention: +X=right, -Y=front, +Z=up (right-hand rule; +Y=back)
+```
+
+Prefer global offset planes for asymmetric placements whose signs matter. Reserve `Plane(selected_face) * sketch` for centered or symmetric features where local face axes cannot mirror the design.
 
 ## Coding Rules
 
@@ -37,6 +52,8 @@ Use this skill only for coding CAD with build123d. Do not turn it into visual dr
 ## Common Gotchas
 
 - `BuildSketch(Plane.XZ)` creates sketch geometry on local `Plane.XY`, then places the finished sketch on `Plane.XZ`. Local sketch points still have local `Z=0`.
+- Viewing from the back swaps left/right relative to the front-view model. This is the common cause of mirrored phone cameras, buttons, logos, and ports.
+- `Plane(face)` derives local sketch axes from the face normal; local sketch `X/Y` are not always global `X/Y`. For left/right-sensitive face features, declare the model-coordinate mapping explicitly.
 - For sketches on non-default workplanes, debug local construction with `.sketch_local`; `.sketch` is the placed/global result.
 - Nested builders do not inherit parent workplanes. Each builder uses its supplied workplane or defaults to `Plane.XY`.
 - `BuildLine` inside `BuildSketch` should usually use the default workplane so it is not unexpectedly reoriented into the sketch.
@@ -59,6 +76,7 @@ Use this skill only for coding CAD with build123d. Do not turn it into visual dr
 Read only the files needed for the current task:
 
 - CAD design intent, datum strategy, tolerances, manufacturability: [references/cad-engineering.md](references/cad-engineering.md)
+- Coordinate systems, reference-view reconciliation, left/right mirroring, and face-local axis mapping: [references/coordinate-system-protocol.md](references/coordinate-system-protocol.md)
 - Builder/algebra/direct workflow and movement rules: [references/build123d-workflows.md](references/build123d-workflows.md)
 - Workplanes, selectors, `ShapeList`, operators, and topology selection: [references/selectors-and-workplanes.md](references/selectors-and-workplanes.md)
 - Modular Python CAD file structure: [references/modular-cad-code.md](references/modular-cad-code.md)
