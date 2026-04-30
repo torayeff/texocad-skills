@@ -7,7 +7,7 @@ Install the repository as a single skill pack. Agents load the root `SKILL.md` a
 ## Included Skills
 
 - `build123d-skill`: Designs, edits, debugs, validates, assembles, and exports `build123d` CAD models.
-- `dfm-skill`: Reviews designs for manufacturability across 3D printing, CNC machining, laser cutting, sheet metal, and injection molding.
+- `dfm-skill`: Reviews designs for manufacturability across 3D printing, CNC machining, laser cutting, sheet metal, injection molding, assembly, finishing, and production handoff.
 - `shared`: Holds cross-skill conventions for units, export formats, tolerances, and reporting.
 
 ## Easiest Way
@@ -53,7 +53,9 @@ texocad-skills/
 │   └── references/
 ├── dfm-skill/
 │   ├── SKILL.md
-│   └── references/
+│   ├── references/
+│   ├── assets/
+│   └── scripts/
 └── shared/
     └── references/
 ```

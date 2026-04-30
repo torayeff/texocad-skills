@@ -1,6 +1,6 @@
 ---
 name: dfm-skill
-description: Reviews mechanical designs for design for manufacturing constraints across 3D printing, CNC machining, laser cutting, sheet metal, and injection molding. Use when checking manufacturability, tolerances, clearances, wall thickness, tool access, process fit, or production risks.
+description: Reviews mechanical designs for design for manufacturing constraints across 3D printing, CNC machining, laser cutting, sheet metal, injection molding, assembly, finishing, and production handoff. Use when checking manufacturability, tolerances, clearances, wall thickness, tool access, process fit, or production risks.
 license: MIT
 ---
 
@@ -22,6 +22,7 @@ Use this skill to review a design against the intended manufacturing process. Do
 - State assumptions when the user does not provide material, process, or tolerance targets.
 - Prefer process-specific constraints over generic "make it manufacturable" advice.
 - Use named dimensions and measurable checks whenever possible: wall thickness, hole diameter, bend radius, tool radius, clearance, draft angle, aspect ratio, and bounding box.
+- Treat numeric rules of thumb as starting heuristics. Supplier capability, material data, tooling, machine class, and inspection plan override generic values.
 - Flag conflicts between processes, for example printable lattices that are difficult to machine or sharp internal corners that are fine in printing but not CNC.
 - Distinguish prototype guidance from production guidance when quantity, repeatability, tooling, or inspection changes the answer.
 - Ask for missing critical inputs only when they change the recommendation materially.
@@ -44,9 +45,14 @@ Read only the references needed for the current process:
 - Laser and 2D cutting constraints: [references/laser-cutting.md](references/laser-cutting.md)
 - Sheet metal constraints: [references/sheet-metal.md](references/sheet-metal.md)
 - Injection molding constraints: [references/injection-molding.md](references/injection-molding.md)
+- Tolerances, datum schemes, fits, and inspection: [references/tolerances-and-datums.md](references/tolerances-and-datums.md)
+- Assembly access, fasteners, inserts, fits, and serviceability: [references/assembly-and-fasteners.md](references/assembly-and-fasteners.md)
+- Coatings, surface finish, masking, cosmetic faces, and finish stackup: [references/surface-finishing.md](references/surface-finishing.md)
+- Prototype-to-production transitions and qualification risks: [references/prototype-to-production.md](references/prototype-to-production.md)
 - Review output template: [references/dfm-review-template.md](references/dfm-review-template.md)
 
 If the task spans multiple manufacturing processes, start with [references/process-selection.md](references/process-selection.md), then read the references for the two most plausible processes only.
+Read `../shared/references/units-and-outputs.md` when a review depends on units, export formats, named tolerance assumptions, or combined CAD plus DFM reporting.
 
 ## Validation And Outputs
 
