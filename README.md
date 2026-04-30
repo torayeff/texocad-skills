@@ -2,22 +2,17 @@
 
 This is a modular Agent Skills pack for CAD-as-code and manufacturing-aware engineering workflows.
 
-Install the repository as a single skill pack. Agents load the root `SKILL.md` as a small router, then read only the child skill needed for the task.
+## Install
 
-## Included Skills
+Copy the root [`SKILL.md`](SKILL.md) into your coding agent's skills directory. If your tool expects one folder per skill, create a `texocad-skills/` folder and put `SKILL.md` inside it.
 
-- `build123d-skill`: Designs, edits, debugs, validates, assembles, and exports `build123d` CAD models.
-- `dfm-skill`: Reviews designs for manufacturability across 3D printing, CNC machining, laser cutting, sheet metal, injection molding, assembly, finishing, and production handoff.
-- `shared`: Holds cross-skill conventions for units, export formats, tolerances, and reporting.
+That file is a small bootstrap. It tells agents to fetch the latest canonical skill router from GitHub:
 
-## Easiest Way
+```text
+https://raw.githubusercontent.com/torayeff/texocad-skills/main/skills/SKILL.md
+```
 
-Add this repository or folder as a skill in your AI coding tool.
-
-- In Cursor: open Settings, go to Rules, add a remote rule or skill, and choose this repository.
-- In Claude Code or Codex: add this folder to your skills directory.
-
-After that, just ask your AI agent to use it.
+The full online skill pack lives in [`skills/`](skills/).
 
 ## Example Prompts
 
@@ -37,25 +32,9 @@ Use the DFM skill to review this enclosure for CNC machining constraints.
 
 If your tool asks where skills live, use one of these:
 
-- Cursor: `~/.cursor/skills/texocad-skills`
-- Claude Code: `~/.claude/skills/texocad-skills`
-- Codex: `~/.agents/skills/texocad-skills`
+- Cursor: `~/.cursor/skills/texocad-skills/SKILL.md`
+- Claude Code: `~/.claude/skills/texocad-skills/SKILL.md`
+- Codex: `~/.agents/skills/texocad-skills/SKILL.md`
 
 Some tools also let you invoke the skill pack directly with `/texocad-skills` or `$texocad-skills`.
 
-## Repository Layout
-
-```text
-texocad-skills/
-├── SKILL.md
-├── build123d-skill/
-│   ├── SKILL.md
-│   └── references/
-├── dfm-skill/
-│   ├── SKILL.md
-│   ├── references/
-│   ├── assets/
-│   └── scripts/
-└── shared/
-    └── references/
-```
