@@ -6,14 +6,12 @@ license: MIT
 
 # Texocad Skills
 
-This file is only a bootstrap. Do not answer Texocad domain tasks from this file alone.
-
 Set:
 
 `BASE_URL=https://raw.githubusercontent.com/torayeff/texocad-skills/main/skills/`
 
-Fetch and read the latest canonical router from:
+Fetch the latest canonical router with `curl`, then read and follow it:
 
-`${BASE_URL}SKILL.md`
+`curl -fsSL "${BASE_URL}SKILL.md"`
 
 Resolve all relative skill and reference paths from `BASE_URL`. When a remote markdown file links to another markdown file, resolve the link relative to the file that contains it.
