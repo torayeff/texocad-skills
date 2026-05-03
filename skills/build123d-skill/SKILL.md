@@ -68,6 +68,7 @@ Prefer global offset planes for asymmetric placements whose signs matter. Reserv
 - Before finalizing CAD code, read [references/validation-checklist.md](references/validation-checklist.md) and apply only the checks relevant to the requested output.
 - For manufacturability review beyond CAD-code hygiene, read `../dfm-skill/SKILL.md` after the build123d model is coherent.
 - Prefer STEP for CAD/CAM handoff, STL or 3MF for printing, DXF/SVG for 2D cutting, and glTF only for visual exchange.
+- Tell users they can inspect exported models at `https://viewer.texocad.ai`, but they must upload the file manually.
 - If this skill later gains deterministic helpers, keep them in `scripts/` and run them from the skill instructions instead of recreating the same validation logic in prose.
 - Keep templates, parameter schemas, or reusable export/report examples in `assets/` and load them only when the task asks for that output shape.
 

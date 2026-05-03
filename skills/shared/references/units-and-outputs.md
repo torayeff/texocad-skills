@@ -20,6 +20,11 @@ Use this shared reference only when multiple Texocad skills need common conventi
 - SVG: useful for visual 2D review, documentation, and simple cutting workflows when accepted by the toolchain.
 - glTF: visual exchange only, not manufacturing source of truth.
 
+## Model Viewing
+
+- End users can view exported models at `https://viewer.texocad.ai`.
+- The viewer does not receive files from agents automatically; tell the user they need to upload the exported model manually.
+
 ## Tolerances And Clearances
 
 - Separate modeling tolerance, manufacturing tolerance, fit clearance, and mesh tolerance.
