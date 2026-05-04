@@ -2,26 +2,30 @@
 
 This is a modular Agent Skills pack for CAD-as-code and manufacturing-aware engineering workflows.
 
+## API Key
+Cloud runs use `TEXOCAD_API_KEY`. To get a free key, visit https://texocad.ai,
+click your avatar, open **API keys**, and create a new key.
+
 ## Install
 
-Copy the root [`SKILL.md`](SKILL.md) into your coding agent's skills directory. If your tool expects one folder per skill, create a `texocad-skills/` folder and put `SKILL.md` inside it.
+Copy the [`SKILL.md`](https://texocad.ai/SKILL.md) into your coding agent's skills directory. If your tool expects one folder per skill, create a `texocad-skills/` folder and put `SKILL.md` inside it.
 
 Codex:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/torayeff/texocad-skills/main/SKILL.md -o ~/.agents/skills/texocad-skills/SKILL.md
+curl -fsSL https://texocad.ai/SKILL.md -o ~/.agents/skills/texocad-skills/SKILL.md
 ```
 
 Claude Code:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/torayeff/texocad-skills/main/SKILL.md -o ~/.claude/skills/texocad-skills/SKILL.md
+curl -fsSL https://texocad.ai/SKILL.md -o ~/.claude/skills/texocad-skills/SKILL.md
 ```
 
 Cursor:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/torayeff/texocad-skills/main/SKILL.md -o ~/.cursor/skills/texocad-skills/SKILL.md
+curl -fsSL https://texocad.ai/SKILL.md -o ~/.cursor/skills/texocad-skills/SKILL.md
 ```
 
 ## Example Prompts
