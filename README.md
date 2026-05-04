@@ -8,24 +8,24 @@ click your avatar, open **API keys**, and create a new key.
 
 ## Install
 
-Copy the [`SKILL.md`](https://texocad.ai/SKILL.md) into your coding agent's skills directory. If your tool expects one folder per skill, create a `texocad-skills/` folder and put `SKILL.md` inside it.
+Copy the [`SKILL.md`](https://api.texocad.ai/SKILL.md) into your coding agent's skills directory. If your tool expects one folder per skill, create a `texocad-skills/` folder and put `SKILL.md` inside it.
 
 Codex:
 
 ```sh
-curl -fsSL https://texocad.ai/SKILL.md -o ~/.agents/skills/texocad-skills/SKILL.md
+curl -fsSL https://api.texocad.ai/SKILL.md -o ~/.agents/skills/texocad-skills/SKILL.md
 ```
 
 Claude Code:
 
 ```sh
-curl -fsSL https://texocad.ai/SKILL.md -o ~/.claude/skills/texocad-skills/SKILL.md
+curl -fsSL https://api.texocad.ai/SKILL.md -o ~/.claude/skills/texocad-skills/SKILL.md
 ```
 
 Cursor:
 
 ```sh
-curl -fsSL https://texocad.ai/SKILL.md -o ~/.cursor/skills/texocad-skills/SKILL.md
+curl -fsSL https://api.texocad.ai/SKILL.md -o ~/.cursor/skills/texocad-skills/SKILL.md
 ```
 
 ## Example Prompts
