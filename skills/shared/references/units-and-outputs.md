@@ -1,6 +1,6 @@
 # Units And Outputs
 
-Use this shared reference only when multiple Texocad skills need common conventions for units, exports, tolerances, or final reporting.
+Use this shared reference only when multiple TexoCAD skills need common conventions for units, exports, tolerances, or final reporting.
 
 ## Units
 
@@ -22,8 +22,8 @@ Use this shared reference only when multiple Texocad skills need common conventi
 
 ## Model Viewing
 
-- End users can view exported models at `https://viewer.texocad.ai`.
-- The viewer does not receive files from agents automatically; tell the user they need to upload the exported model manually.
+- For local exports, end users can view exported models at `https://viewer.texocad.ai`, but they need to upload the exported file manually.
+- For TexoCAD Cloud runs, report the generated output/viewer URLs returned by the API. Read [execution-modes.md](execution-modes.md) for TexoCAD Cloud execution rules.
 
 ## Tolerances And Clearances
 

@@ -1,10 +1,10 @@
 ---
 name: texocad-skills
-description: Loads the latest Texocad skills from GitHub for CAD-as-code, build123d modeling, DFM review, validation, manufacturing constraints, tolerances, units, and exports. Use when a task involves mechanical CAD code, manufacturability, process constraints, or skill discovery in this repository.
+description: Loads the latest TexoCAD skills from GitHub for CAD-as-code, build123d modeling, DFM review, validation, manufacturing constraints, tolerances, units, and exports. Use when a task involves mechanical CAD code, manufacturability, process constraints, or skill discovery in this repository.
 license: MIT
 ---
 
-# Texocad Skills
+# TexoCAD Skills
 
 Set:
 
